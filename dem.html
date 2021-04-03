@@ -12,7 +12,7 @@
   <body>
     <a href="#" class="down" onclick="vb('https://disk.yandex.ru/d/Qe-k_QgL3YdUUX');">Cкачать</a>
     <div style="width:600px;margin-top:50px" id="vda">
-      <video id="v" poster="files/back.jpg" loop>
+      <video id="v" poster="files/back.jpg" controls>
         <source src="files/mabel.mp4" size='360'>
         <source src="files/mabel~1.mp4" size="450">
         <source src="files/Untitled.mp4" size='240'>
@@ -23,7 +23,7 @@
     </div>
     <script>
       var preview = [{"preview": "files/100p.vtt"}];
-      let player = new Plyr(document.getElementById('v'),{invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
+      //let player = new Plyr(document.getElementById('v'),{invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
       $(function(){for (var i = 0; i < 6; i++) {
         var da = '<h1>help</h1>';
         $('.da').append(da);
@@ -66,7 +66,7 @@
         // 4) Запускаем рекламу
         .then(function(adStore) {
             // Создаем контроллер воспроизведения
-            const adPlaybackController = adStore.createPlaybackController(v, plyr__control);
+            const adPlaybackController = adStore.createPlaybackController(v, vda);
             // Подписываемся на событие окончания рекламы
             adPlaybackController.subscribe('AdStopped', function() {
                 console.log('Ad stopped playing');
