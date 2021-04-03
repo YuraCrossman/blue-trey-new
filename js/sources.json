@@ -1,0 +1,109 @@
+[{
+  "title": "MABEL",
+  "artist": "Imasai SIOMA",
+  "album": "#RusUTAU",
+  "sources": [
+    {
+      "src": "files/mabel.mp4",
+      "type": "video/mp4",
+      "size": 360
+    },
+    {
+      "src": "files/mabel~1.mp4",
+      "type": "video/mp4",
+      "size": 240
+    },
+    {
+      "src": "files/mabel(orig).mp4",
+      "type": "video/mp4",
+      "size": 480
+    },
+    {
+      "src": "files/mabel(orig).mp4",
+      "type": "video/mp4",
+      "size": 720
+    }
+  ],
+  "preview": "files/100p.vtt",
+  "poster": "files/UTAU_logo.jpg",
+  "poster-media":[
+    {
+      "src": "files/Imasai_SIOMA.png",
+      "sizes":"500x500",
+      "type":"image/png"
+    }
+  ]
+},
+{
+  "title": "Liar Dance",
+  "artist": "Blue Trey",
+  "album": "#RusUTAU",
+  "sources":[
+    {
+      "src": "files/Untitled.mp4",
+      "type": "video/mp4",
+      "size": 720
+    },
+    {
+      "src": "files/Untitled.mp4",
+      "type": "video/mp4",
+      "size": 480
+    },
+    {
+      "src": "files/Untitled.mp4",
+      "type": "video/mp4",
+      "size": 360
+    },
+    {
+      "src": "files/Untitled.mp4",
+      "type": "video/mp4",
+      "size": 240
+    }
+  ],
+  "preview": "files/100p.vtt",
+  "poster": "files/UTAU_logo.jpg",
+  "poster-media":[
+    {
+      "src": "",
+      "sizes":"1920x1080",
+      "type":"image/png"
+    }
+  ]
+},
+{
+  "title": "Bring It On!",
+  "artist": "Blue Trey & Tsukiyama Tomo",
+  "album": "#RusUTAU",
+  "preview": "files/100p.vtt",
+  "sources":[
+    {
+      "src": "files/BringItOn720.mp4",
+      "type": "video/mp4",
+      "size": 720
+    },
+    {
+      "src": "files/BringItOn480.mp4",
+      "type": "video/mp4",
+      "size": 480
+    },
+    {
+      "src": "files/BringItOn360.mp4",
+      "type": "video/mp4",
+      "size": 360
+    },
+    {
+      "src": "files/BringItOn360.mp4",
+      "type": "video/mp4",
+      "size": 240
+    }
+  ],
+  "preview": "files/100p.vtt",
+  "poster": "files/BringItOn.png",
+  "poster-media":[
+    {
+      "src": "files/BringItOnSingle.jpg",
+      "sizes":"4168x4168",
+      "type":"image/png"
+    }
+  ]
+}]

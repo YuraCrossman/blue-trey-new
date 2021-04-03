@@ -7,9 +7,10 @@
     <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
     <script src="https://an.yandex.ru/system/video-ads-sdk/adsdk.js"></script>
+    <script src="js/yandex.disk.js" charset="utf-8"></script>
   </head>
   <body>
-    <a href="icon.png" target="_blank" download class="down">Cкачать</a>
+    <a href="#" target="_blank" download class="down" ondblclick="vb('https://disk.yandex.ru/d/Qe-k_QgL3YdUUX');">Cкачать</a>
     <div style="width:600px;margin-top:50px" id="vda">
       <video id="v" poster="files/back.jpg" loop>
         <source src="files/mabel.mp4" size='360'>
@@ -22,7 +23,7 @@
     </div>
     <script>
       var preview = [{"preview": "files/100p.vtt"}];
-      //let player = new Plyr(document.getElementById('v'),{invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
+      let player = new Plyr(document.getElementById('v'),{invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
       $(function(){for (var i = 0; i < 6; i++) {
         var da = '<h1>help</h1>';
         $('.da').append(da);
