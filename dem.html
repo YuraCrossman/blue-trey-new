@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css"/>
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="https://an.yandex.ru/system/video-ads-sdk/adsdk.js"></script>
+  </head>
+  <body>
+    <a href="icon.png" target="_blank" download class="down">Cкачать</a>
+    <div style="width:600px;margin-top:50px" id="vda">
+      <video id="v" poster="files/back.jpg" loop>
+        <source src="files/mabel.mp4" size='360'>
+        <source src="files/mabel.mp4" size="450">
+        <source src="files/Untitled.mp4" size='240'>
+      </video>
+      <a href="#" ></a>
+    </div>
+    <div class="da">
+
+    </div>
+    <script>
+      var preview = [{"preview": "files/100p.vtt"}];
+      let player = new Plyr(document.getElementById('v'),{debug:true,invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
+      $(function(){for (var i = 0; i < 6; i++) {
+        var da = '<h1>help</h1>';
+        $('.da').append(da);
+      }})
+      var video = document.getElementById('v');
+      video.addEventListener('play', function () {ad()}, false);
+      function ad() {
+        ya.videoAd
+        .loadModule('AdLoader')
+        // 1)  Создаем экземпляр AdLoader с рекламными параметрами
+        .then(function(module) {
+            return module.AdLoader.create(
+                {
+                    partnerId: 630054,
+                    category: 0,
+                    // Опциональный параметр идентификатора блока.
+                    // Если параметр не указан, используется блок типа preroll.
+                },
+            );
+        })
+        // 2) Загружаем рекламу
+        .then(function(adLoader) {
+            return adLoader.loadAd();
+        })
+        // 4) Запускаем рекламу
+        .then(function(adStore) {
+            // Создаем контроллер воспроизведения
+            const adPlaybackController = adStore.createPlaybackController(v, vda);
+            // Подписываемся на событие окончания рекламы
+            adPlaybackController.subscribe('AdStopped', function() {
+                console.log('Ad stopped playing');
+            });
+            // Запускаем проигрывание рекламы
+            adPlaybackController.playAd();
+        })
+        // Если что-то пошло не так, логируем ошибку в консоль
+        .catch(function(error) {
+            console.error(error);
+        });
+      }
+      </script>
+  </body>
+</html>
