@@ -16,14 +16,13 @@
         <source src="files/mabel~1.mp4" size="450">
         <source src="files/Untitled.mp4" size='240'>
       </video>
-      <a href="#" ></a>
     </div>
     <div class="da">
 
     </div>
     <script>
       var preview = [{"preview": "files/100p.vtt"}];
-      let player = new Plyr(document.getElementById('v'),{debug:true,invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
+      let player = new Plyr(document.getElementById('v'),{invertTime:false,toggleInvert:false,previewThumbnails:{enabled:true,src:preview[0]['preview']},quality:{default: 360,options:[450,240,360]}});
       $(function(){for (var i = 0; i < 6; i++) {
         var da = '<h1>help</h1>';
         $('.da').append(da);
