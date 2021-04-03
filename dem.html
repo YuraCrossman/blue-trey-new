@@ -66,7 +66,7 @@
         // 4) Запускаем рекламу
         .then(function(adStore) {
             // Создаем контроллер воспроизведения
-            const adPlaybackController = adStore.createPlaybackController(v, .plyr__control);
+            const adPlaybackController = adStore.createPlaybackController(v, plyr__control);
             // Подписываемся на событие окончания рекламы
             adPlaybackController.subscribe('AdStopped', function() {
                 console.log('Ad stopped playing');
