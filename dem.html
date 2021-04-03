@@ -48,6 +48,20 @@
         .then(function(adLoader) {
             return adLoader.loadAd();
         })
+            // 3) Предзагружаем рекламу
+        // Этот пункт пропускается, если рекламу необходимо запустить сразу
+        .then(function(adStore) {
+            // Запускаем предзагрузку
+            adStore.preload({
+                videoSlot: video,
+                desiredBitrate: 1000,
+            });
+
+            return new Promise((resolve) => {
+                // Ждем момента, когда можно будет запустить рекламу
+                resolve(adStore);
+            });
+        })
         // 4) Запускаем рекламу
         .then(function(adStore) {
             // Создаем контроллер воспроизведения
