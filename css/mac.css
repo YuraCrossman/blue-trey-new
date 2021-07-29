@@ -1,0 +1,117 @@
+#preload{
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  /* фоновый цвет элемента */
+  background: black;
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
+  cursor: wait;
+  color: white;
+}
+#preload-content{
+  text-align: center;
+  margin-top: 5%;
+  font-size: 25px;
+  cursor: wait;
+}
+#load_proc{
+  line-height: 50px;
+  cursor: wait;
+}
+.window{
+  position:relative;
+  margin-top: 5em;
+  border-radius:8px;
+  width: 875px; height: 484px;
+  margin-left:auto;margin-right:auto;
+}
+.windowAudioClient{
+  position:relative;
+  margin-top: 5em;
+  border-radius:8px;
+  width: 653px; height: 597px;
+  margin-left:auto;margin-right:auto;
+}
+.safari-win{
+  position:relative;
+  margin-top: 5em;
+  border-radius:8px;
+  width: 653px; height: 597px;
+  margin-left:auto;margin-right:auto;
+}
+.modal-window{
+  position:relative;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px; height: auto; /*339px;*/
+  border-radius:8px;
+}
+#modalAudio>.modal-window{
+  width:485px;height:auto;
+}
+.modal-toolbar{border-top-right-radius: 5px;
+border-top-left-radius: 5px;}
+.window-content.background{
+  background: white;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+#modalAudio>.modal-window>.window-content.background{
+  background: #1c1c1d;
+}
+a {
+  text-decoration: none;
+}
+a.closebutton span {
+  margin-left: 1px;
+  line-height: 7px;
+  vertical-align: 50%;
+}
+.buttons {
+  padding-left: 8px;
+  padding-top: 3px;
+  float: left;
+  line-height: 0px;
+}
+.buttons:hover a {
+  visibility: visible;
+}
+.close {
+  background: #ff5c5c;
+  font-size: 9pt;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #e33e41;
+  border-radius: 50%;
+  display: inline-block;
+}
+.close:active {
+  background: #c14645;
+  border: 1px solid #b03537;
+}
+.close:active .closebutton {
+  color: #4e0002;
+}
+.closebutton {
+  color: #820005;
+  visibility: hidden;
+}
+.pane-sm{overflow-y: auto;flex: 1;border-left: 1px solid #ddd;}
+.vb.ui-selecting,.audioplayer.ui-selecting,.safari.ui-selecting {background: #14abf3d1;filter: drop-shadow();}
+.vb.ui-selected,.audioplayer.ui-selected,.safari.ui-selected {background: #14abf375;filter: drop-shadow();}
+.window.full{
+  position: absolute;
+  width: 100%;
+  height: 47rem;
+  margin-top: 0px;
+  left:0px;top:0px;
+}
+.ui-menu {width: 150px;}

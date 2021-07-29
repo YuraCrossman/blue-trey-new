@@ -1,0 +1,42 @@
+[{
+  "name": "gimmeXgimme",
+  "artist": "Blue Trey",
+  "album": "#RusUTAU",
+  "url": "files/gimme.mp3",
+  "cover_art_url": "icon.png",
+  "poster-media":[
+    {
+      "src": "icon.png",
+      "sizes":"256x256",
+      "type":"image/png"
+    }
+  ]
+},
+{
+  "name": "MABEL",
+  "artist": "yes",
+  "album": "#RusUTAU",
+  "url": "files/mabel.mp4",
+  "cover_art_url": "files/Imasai_SIOMA.png",
+  "poster-media":[
+    {
+      "src": "icon.png",
+      "sizes":"256x256",
+      "type":"image/png"
+    }
+  ]
+},
+{
+  "name": "Youkai Taisou",
+  "artist": "Blue Trey ft. Ur0",
+  "album": "#RusUTAU",
+  "url": "files/youkai taisou.mp3",
+  "cover_art_url": "files/bt.jpg",
+  "poster-media":[
+    {
+      "src": "files/bt.jpg",
+      "sizes":"1000x1000",
+      "type":"image/jpg"
+    }
+  ]
+}]

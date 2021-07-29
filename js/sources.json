@@ -24,7 +24,6 @@
       "size": 720
     }
   ],
-  "preview": "files/100p.vtt",
   "poster": "files/UTAU_logo.jpg",
   "poster-media":[
     {
@@ -60,7 +59,6 @@
       "size": 240
     }
   ],
-  "preview": "files/100p.vtt",
   "poster": "files/UTAU_logo.jpg",
   "poster-media":[
     {
@@ -97,7 +95,7 @@
       "size": 240
     }
   ],
-  "preview": "files/100p.vtt",
+  "preview": "files/bio.vtt",
   "poster": "files/BringItOn.png",
   "poster-media":[
     {

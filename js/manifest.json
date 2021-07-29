@@ -1,0 +1,15 @@
+{
+  "name": "Blue Trey",
+  "short_name": "BT",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#de7396",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+    "src": "../icon.png",
+    "type": "image/png",
+    "sizes": "256x256"
+    }
+  ]
+}

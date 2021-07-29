@@ -1,0 +1,5 @@
+html,body{width: 100%;height: 100%;margin: 0px;position: absolute;align-items: center;background-repeat: no-repeat;background-size: cover;background-position: center;}
+.row{display: flex;align-items: center;justify-content: center;}
+.center{margin:auto;text-align:center;align-items:center;}
+::-webkit-scrollbar{width:7px;position:static;}
+::-webkit-scrollbar-thumb{background: #de7396;border-radius: 20px;}
