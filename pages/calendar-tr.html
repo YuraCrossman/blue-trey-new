@@ -1,0 +1,10 @@
+<tr>
+  <th id="time">%time%</th>
+</tr>
+<script>
+  function clock() {
+    let now = new Date();
+    $("#time").text(now);
+  }
+  setInterval("clock()", 1);
+</script>
