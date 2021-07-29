@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blue Trey</title>
+    <link rel="icon" href="icon.png">
+    <link rel="manifest" href="js/manifest.json">
+    <script src="js/app-pwa.js" charset="utf-8"></script>
+    <!--link rel="preload" href="files/sound/Startup.mp3" as="audio">
+    <link rel="preload" href="js/jq/jquery-3.6.0.min.js" as="script">
+    <link rel="preload" href="js/preloader.js" as="script">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="files/sound/Frog.wav" as="audio">
+    <link rel="preload" href="files/sound/Hero.wav" as="audio">
+    <link rel="preload" href="files/sound/Morce.wav" as="audio">
+    <link rel="preload" href="files/mabel.mp4" as="video"-->
+
+    <!-- JQ -->
+    <script src="js/jq/jquery-3.6.0.min.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/jq/jquery-ui.min.js"></script>
+    <!--script src="js/jq/m/jquery.mobile.custom.min.js"></script>
+    <link rel="stylesheet" href="js/jq/m/jquery.mobile.custom.structure.min.css"-->
+    <link rel="stylesheet" href="js/jq/jquery-ui.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/boot/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="js/boot/bootstrap.min.js"></script>
+
+    <!--CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/light.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css"/>
+    <link rel="stylesheet" href="css/player.css">
+
+    <!-- JS -->
+    <script src="js/darkmode.min.js"></script>
+    <script src="https://unpkg.com/mediainfo.js/dist/mediainfo.min.js"></script>
+    <script src="js/video/plyr.js"></script>
+    <script src="js/yandex.disk.js"></script>
+    <script src="js/amplitude.min.js"></script>
+
+    <!-- Stylesheets for mac -->
+    <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/mac.css">
+
+    <!-- Javascript for mac -->
+    <script src="js/menu.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div class="audio-sounds">
+      <audio src="files/sound/Startup.mp3" preload="auto"></audio>
+      <audio src="files/sound/Frog.wav" preload="auto"></audio>
+      <audio src="files/sound/Hero.wav" preload="auto"></audio>
+      <audio src="files/sound/Morse.wav" preload="auto"></audio>
+    </div>
+    <div id="preload">
+      <div id="preload-content">
+        <h1 class="pr-text"></h1>
+        <img src="files/UTAU_logo.jpg" width="20%">
+        <h1>OS</h1>
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <span id="load_proc">0%</span>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <a class="vb" style="position:absolute;left:-11px;top:20px;border-radius:5px;text-decoration:none;">
+          <div class="text-center" style="width: 150px;">
+            <img src="icon.png" width="90px">
+              <h5 class="card-title" style="color:white;filter:drop-shadow(0px 1px 1px black);">Blue Trey</h5>
+          </div>
+        </a>
+        <a class="audioplayer" style="position:absolute;left:-11px;top:170px;border-radius:5px;text-decoration:none;">
+          <div class="text-center" style="width: 150px;">
+            <img src="/files/audio.png" width="90px">
+              <h5 class="card-title" style="color:white;filter:drop-shadow(0px 1px 1px black);">Player</h5>
+          </div>
+        </a>
+        <a class="safari" style="position:absolute;left:-11px;top:315px;border-radius:5px;text-decoration:none;">
+          <div class="text-center" style="width: 150px;">
+            <img src="/files/safari.png" width="90px" style="border-radius: 10%;">
+              <h5 class="card-title" style="color:white;filter:drop-shadow(0px 1px 1px black);">Safari</h5>
+          </div>
+        </a>
+
+        <!--ul id="menu" style="display:none;">
+          <li>
+            <div><span class="ui-icon ui-icon-disk"></span>Скачать</div>
+          </li>
+        </ul-->
+
+        <!-- Taskbar
+          <header class="toolbar toolbar-header" style="width:100%;z-index:100;">
+            <div class="buttons">
+              <button class="btn btn-mini btn-default" onclick="closeApp();">C</button>
+            </div>
+          </header>
+        -->
+        <div class="window" style="display:none;">
+
+          <!-- .toolbar-header sits at the top of your app -->
+          <header class="toolbar toolbar-header" style="border-top-right-radius: 8px;border-top-left-radius: 8px;">
+            <div class="buttons">
+              <div class="close" style="cursor: pointer;">
+                <a id="main" class="closebutton" style="cursor: pointer;"><span><strong style="cursor: pointer;">x</strong></span></a>
+              </div>
+            </div>
+            <h1 class="title" style="cursor:move;">Blue Trey</h1>
+          </header>
+
+          <!-- Your app's content goes inside .window-content -->
+          <div class="window-content">
+            <div class="pane-group">
+              <div class="pane pane-sm sidebar">
+                <nav class="nav-group">
+                  <h5 class="nav-group-title">Избранное</h5>
+                  <span class="nav-group-item active" onclick="pagesd('home');">
+                    <span class="icon icon-home"></span>
+                    Главная
+                  </span>
+                  <span class="nav-group-item" onclick="pagesd('download');">
+                    <span class="icon icon-download"></span>
+                    Загрузки
+                  </span>
+                  <span class="nav-group-item" onclick="modalI('https://yuracrossman.github.io/blue-trey/img/UTAU%20DVD.png');">
+                    <span class="icon icon-folder"></span>
+                    О персонаже
+                  </span>
+                  <span class="nav-group-item" onclick="errorsd();">
+                    <span class="icon icon-window"></span>
+                    Applications
+                  </span>
+                  <span class="nav-group-item" onclick="errorsd();">
+                    <span class="icon icon-signal"></span>
+                    AirDrop
+                  </span>
+                  <span class="nav-group-item" onclick="errorsd();">
+                    <span class="icon icon-monitor"></span>
+                    Desktop
+                  </span>
+                  <span class="nav-group-item" onclick="pagesd('calendar');">
+                    <span class="icon icon-calendar"></span>
+                    Дата и время
+                  </span>
+                  <span class="nav-group-item" onclick="modalS();">
+                    <span class="icon icon-cog"></span>
+                    Настройки
+                  </span>
+                </nav>
+              </div>
+
+              <div class="pane">
+                <table class="table-striped">
+                  <thead>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat">
+      <script src="js/chat.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Video -->
+    <div class="modal" width="auto" id="modalVideo" tabindex="-1" aria-hidden="true">
+      <div class="modal-window">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Player</h1>
+        </header>
+        <div class="window-content">
+          <video id='mVideo' src="">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!-- VideoYT -->
+    <div class="modal" width="auto" id="modalVideoY" tabindex="-1" aria-hidden="true">
+      <div class="modal-window">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Player</h1>
+        </header>
+        <div class="window-content" style="flex-direction: column;">
+          <div id="YT" style="height: 337px;width: 100%;">
+            <iframe id="mVideoY" width="100%" height="100%" src="https://www.youtube.com/embed/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <div class="modal" width="auto" id="modalAudio" tabindex="-1" aria-hidden="true">
+      <div class="modal-window">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Player</h1>
+        </header>
+        <div class="window-content background">
+          <div id="single-song-player">
+            <img data-amplitude-song-info="cover_art_url"/>
+            <div class="bottom-container">
+              <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
+              <div class="time-container">
+                <span class="current-time">
+                  <span class="amplitude-current-minutes"></span>:<span class="amplitude-current-seconds"></span>
+                </span>
+                <span class="duration">
+                  <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
+                </span>
+              </div>
+              <div class="control-container">
+                <div class="amplitude-play-pause amplitude-playing" id="play-pause"></div>
+                <div class="meta-container">
+                  <span data-amplitude-song-info="name" class="song-name"></span>
+                  <span data-amplitude-song-info="artist"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Image -->
+    <div class="modal" width="auto" id="modalImage" tabindex="-1" aria-hidden="true">
+      <div class="modal-window">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Фотография</h1>
+        </header>
+        <div class="window-content background" id="window-i">
+          <img src="files/Fading balls.gif" id="load" style="left:44%;position:inherit;">
+          <img id="mImage" width="100%" src="" style='margin-left:auto;margin-right:auto;'>
+        </div>
+      </div>
+    </div>
+    <div class="modal" width="auto" id="modalImageG" tabindex="-1" aria-hidden="true">
+      <div class="modal-window">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Фотография</h1>
+        </header>
+        <div class="window-content background" id="window-i" style="display:block;">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="icon.png" class="d-block w-100">
+              </div>
+              <div class="carousel-item">
+                <img src="files/UTAU_logo.jpg" class="d-block w-100">
+              </div>
+              <div class="carousel-item">
+                <img src="files/back.jpg" class="d-block w-100">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AudioClient -->
+    <div class="windowAudioClient" style="display:none">
+      <header class="modal-toolbar toolbar-header">
+        <div class="buttons">
+          <div class="close" style="cursor: pointer;">
+            <a id="modal" class="closebutton" style="cursor: pointer;"><span><strong style="cursor: pointer;">x</strong></span></a>
+          </div>
+        </div>
+        <h1 class="title title-window-player" style="cursor:move;">Player</h1>
+      </header>
+      <div class="window-content background">
+        <iframe src="/Audiovisualization-master/index.html" id="mAudioClient" width="100%" height="600px" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="modal" width="auto" id="modalSettings" tabindex="-1" aria-hidden="true">
+      <div class="modal-window" style="top: -55px;">
+        <header class="modal-toolbar toolbar-header">
+          <h1 class="title title-window-player">Настройки</h1>
+        </header>
+        <div class="window-content background" id="window-i" style="display:block;">
+          <div class="modal-body">
+            <p>Ваше имя:</p> <input class="form-control name-input" type="text" placeholder="Никнейм" maxlength="20">
+            <p style="margin-top: 1rem;">Обои:</p>
+            <div class="center">
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#backSystem">Системные</button>
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#backClient">Файл</button>
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#backUrl">Ссылкой</button>
+            </div>
+            <br>
+            <div class="collapse" id="backSystem">
+              <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="false" data-target="back">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="files/background/back.jpg" class="d-block w-100" onclick="background('files/background/back.jpg')">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="files/background/1618249649536.jpg" class="d-block" style="width:35%;margin-left:auto;margin-right:auto;" onclick="background('files/background/1618249649536.jpg')">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="files/background/1618517510322.jpg" class="d-block w-100" onclick="background('files/background/1618517510322.jpg')">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="files/background/1618517510307.jpg" class="d-block" style="width:35%;margin-left:auto;margin-right:auto;" onclick="background('files/background/1618517510307.jpg')">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="files/background/1618517510289.jpg" class="d-block w-100" onclick="background('files/background/1618517510289.jpg')">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+            <div class="collapse" id="backClient">
+              <input class="form-control-file" type="file" name="fileBack" onchange="backUp(this.files)" accept="image/*" data-toggle="tooltip" data-html="true" title="<b>Работает до закрытия браузера!</b>">
+              <img src="" class="backClientImage w-100" onclick="background($('.backClientImage').attr('src'))">
+            </div>
+            <div class="collapse" id="backUrl">
+              <input class="form-control urlBack" type="url" name="urlBack" onchange="backUrl()" placeholder="https://example.com/image.jpeg">
+              <img src="" class="backClientUrl w-100" onclick="background($('.backClientUrl').attr('src'))">
+            </div>
+            <br>
+            <select class="form-control" name="backOption">
+              <option value="auto">По размеру</option>
+              <option value="cover">Растянуть</option>
+              <option value="repeat">Замостить</option>
+            </select>
+            <p style="margin-top: 1rem;">Тёмная тема:</p>
+            <div class="flex">
+              <input type="checkbox" name="dark">
+            </div>
+             <br>
+            <button class='btn btn-default' onclick="$('#modalSettings').modal('hide');">Cansel</button>
+            <button class='btn btn-primary pull-right' onclick="setChange();">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" data-delay="6000" role="alert" aria-live="assertive" aria-atomic="true" style="position:absolute;top:0;right:0;margin:15px;">
+      <div class="toast-header">
+        <img src="icon.png" class="rounded mr-2" width="20px">
+        <strong class="mr-auto">Система</strong>
+        <small>только что</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        Это приложение может <b>сильно нагрузить вашу систему</b>!
+        Если же это произошло, следует <b>перезагрузить страницу</b>
+      </div>
+    </div>
+
+    <div class="safari-win" style="display:none">
+      <header class="modal-toolbar toolbar-header">
+        <div class="buttons">
+          <div class="close" style="cursor: pointer;">
+            <a id="modal-saf" class="closebutton" style="cursor: pointer;"><span><strong style="cursor: pointer;">x</strong></span></a>
+          </div>
+        </div>
+        <h1 class="title title-window-player" style="cursor:move;">Safari</h1>
+      </header>
+      <div class="tab-group" id="tabs">
+        <div class="tab-item active">
+          <span class="icon icon-cancel icon-close-tab"></span>
+          Новая вкладка
+        </div>
+        <div class="tab-item tab-item-fixed">
+         <span class="icon icon-plus"></span>
+       </div>
+      </div>
+      <div class="tab-group" id="search">
+        <input type="text" name="src" value="google.com" style="width:100%">
+        <button class="btn btn-default" name="search">Залупа</button>
+      </div>
+      <div class="window-content background">
+        <iframe id="frameSaf" src="https://ya.ru" width="100%"></iframe>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

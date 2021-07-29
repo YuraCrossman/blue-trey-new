@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photon</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/photon.min.css">
+    <style media="screen">
+    a {
+      text-decoration: none;
+    }
+    a.closebutton span {
+      margin-left: 1px;
+      line-height: 7px;
+      vertical-align: 50%;
+    }
+    .buttons {
+      padding-left: 8px;
+      padding-top: 3px;
+      float: left;
+      line-height: 0px;
+    }
+    .buttons:hover a {
+      visibility: visible;
+    }
+    .close {
+      background: #ff5c5c;
+      font-size: 9pt;
+      width: 11px;
+      height: 11px;
+      border: 1px solid #e33e41;
+      border-radius: 50%;
+      display: inline-block;
+}
+    .close:active {
+      background: #c14645;
+      border: 1px solid #b03537;
+    }
+    .close:active .closebutton {
+      color: #4e0002;
+    }
+    .closebutton {
+      color: #820005;
+      visibility: hidden;
+      cursor: default;
+    }
+    </style>
+
+    <!-- Javascript -->
+    <script src="/js/menu.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="window" id="draggable">
+
+      <!-- .toolbar-header sits at the top of your app -->
+      <header class="toolbar toolbar-header">
+        <div class="buttons">
+          <div class="close">
+            <a class="closebutton" href="#"><span><strong>x</strong></span></a>
+          </div>
+        </div>
+        <h1 class="title" style="cursor:move;">Blue Trey</h1>
+      </header>
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane pane-sm sidebar">
+            <nav class="nav-group">
+              <h5 class="nav-group-title">Favorites</h5>
+              <span class="nav-group-item active">
+                <span class="icon icon-home"></span>
+                Главная
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-download"></span>
+                Скачать
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-folder"></span>
+                О персонаже
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-window"></span>
+                Applications
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-signal"></span>
+                AirDrop
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-monitor"></span>
+                Desktop
+              </span>
+            </nav>
+          </div>
+
+          <div class="pane">
+            <table class="table-striped">
+              <thead>
+                <tr>
+                  <th>Имя</th>
+                  <th>Тип</th>
+                  <th>Размер</th>
+                </tr>
+              </thead>
+              <tbody>
+                <a href="#about"><tr>
+                  <td>О персонаже</td>
+                  <td>Папка</td>
+                  <td></td>
+                </tr></a>
+                <a href="#download"><tr>
+                  <td>Скачать</td>
+                  <td>Папка</td>
+                  <td></td>
+                </tr></a>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
