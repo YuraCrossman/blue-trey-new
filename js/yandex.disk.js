@@ -2,14 +2,15 @@ function vb(file) {
   $.ajax({
     type: 'GET',
     url: 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key='+file,
-     contentType: 'application/json'
+    contentType: 'application/json',
+    headers: { Authorization: 'OAuth' }
    }).done(function(data) {
-     console.log(data);
-     console.log('data called success');
+     //console.log(data);
+     //console.log('data called success');
      window.open(data['href']);
      //$('iframe').attr('src',data['href']);
-   }).then(function () {
-
+   }).then(function (err) {
+     //console.log(err);
    });
 }
 
