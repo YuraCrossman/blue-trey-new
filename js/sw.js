@@ -1,5 +1,5 @@
 // Files to cache
-const cacheName = 'jsBT-PWA-v1.0';
+const cacheName = 'jsBT-PWA-v1';
 const appShellFiles = [
   /blue-trey-new/
   /blue-trey-new/index.html
