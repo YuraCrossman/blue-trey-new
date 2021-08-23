@@ -239,8 +239,8 @@ function initBinCanvas () {
 	//add new canvas
 	"use strict";
 	c = document.getElementById("freq");
-	c.width = $('.windowAudioClient').width() / 2;
-        c.height = $('.windowAudioClient').height() / 2;
+	c.width = $('.windowAudioClient').width();
+        c.height = $('.windowAudioClient').height();
 	//get context from canvas for drawing
 	ctx = c.getContext("2d");
 
@@ -250,7 +250,7 @@ function initBinCanvas () {
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	//create gradient for the bins
-	var gradient = ctx.createLinearGradient(0, c.height - 300,0,c.height - 25);
+	var gradient = ctx.createLinearGradient(0, c.height - 300,0,window.innerHeight - 25);
 	gradient.addColorStop(1,'#00f'); //black
 	gradient.addColorStop(0.75,'#f00'); //red
 	gradient.addColorStop(0.25,'#f00'); //yellow
