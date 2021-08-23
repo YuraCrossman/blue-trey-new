@@ -7,8 +7,9 @@ function vb(file) {
    }).done(function(data) {
      //console.log(data);
      //console.log('data called success');
-     window.open(data['href']);
+     //window.open(data['href']);
      //$('iframe').attr('src',data['href']);
+     $('#frameSaf').load(data['href']);
    }).then(function (err) {
      //console.log(err);
    });

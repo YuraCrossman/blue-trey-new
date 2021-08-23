@@ -49,6 +49,7 @@ window.onload = $(function() {
     $('#menu').css({'display':'none'})
   });
   $(".windowAudioClientPlayer").load('audiovisualization-master/index.html');
+  $("#frameSaf").load('https://ya.ru');
 });
 function closeApp(){
   window.close();
