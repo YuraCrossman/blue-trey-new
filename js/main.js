@@ -29,7 +29,7 @@ window.onload = $(function() {
   let vidWidth = vid.videoWidth;
   let aid = document.getElementById("mAudio");
   $('html').selectable();
-  $('.window,.safari-win').draggable({scroll: false}).resizable({maxHeight: 727,maxWidth: 1447,minHeight: 305,minWidth: 600});
+  $('.window,.safari-win,.windowAudioClient').draggable({scroll: false}).resizable({maxHeight: 727,maxWidth: 1447,minHeight: 305,minWidth: 600});
   $('.modal-window').draggable({scroll: false})/*.resizable({minHeight: 305,minWidth: 600,maxHeight:vidHeight,maxHeight:vidWidth})*/;
   $('#modalImage>.modal-window').resizable({minHeight: 50,minWidth: 300,maxHeight:633 ,maxWidth:1066});
   $('.vb,.audioplayer,.safari,.windowAudioClient').draggable({scroll: false});
@@ -48,6 +48,7 @@ window.onload = $(function() {
   $('body').click(function() {
     $('#menu').css({'display':'none'})
   });
+  $(".windowAudioClientPlayer").load('audiovisualization-master/index.html');
 });
 function closeApp(){
   window.close();
@@ -79,7 +80,7 @@ $(".vb").dblclick(function(){
   sound.autoplay=true;
 });
 $(".audioplayer").dblclick(function(){
-  $(".windowAudioClient").toggle('slow',stop());
+  $(".windowAudioClient").toggle('slow');
   var sound = new Audio();
   sound.src='files/sound/Frog.wav';
   sound.autoplay=true;

@@ -44,8 +44,8 @@ function handleFiles(files) {
 	var fileReader  = new FileReader();
     fileReader.onload = function(){
          var arrayBuffer = this.result;
-         console.log(arrayBuffer);
-         console.log(arrayBuffer.byteLength);
+         //console.log(arrayBuffer);
+         //console.log(arrayBuffer.byteLength);
 
 		 filename = files[0].name.toString();
 		filename = filename.slice(0, -4);
@@ -119,7 +119,7 @@ function handleFiles(files) {
 		$("#freq").addClass("animateHue");
 		//on error
 		}, function(e) {
-			console.log(e);
+			//console.log(e);
 		});
 	};
 	request.send();
@@ -139,7 +139,7 @@ function playSample() {
 	request.addEventListener("error", transferFailed);
 	request.addEventListener("abort", transferCanceled);
 
-	request.open('GET', 'src/demo.mp3', true);
+	request.open('GET', 'audiovisualization-master/src/demo.mp3', true);
 	request.responseType = 'arraybuffer';
 
  	// When loaded decode the data
@@ -157,7 +157,7 @@ function playSample() {
 		sourceNode.buffer = buffer;
 		sourceNode.start(0);
 		$("#freq").addClass("animateHue");
-		$(".audio").attr('url','src/demo.mp3');
+		$(".audio").attr('url','audiovisualization-master/src/demo.mp3');
 		//on error
 		}, function(e) {
 			console.log(e);
@@ -209,7 +209,7 @@ function updateProgress (oEvent) {
   if (oEvent.lengthComputable) {
 	$(".yes").prop("disabled",true);
     var percentComplete = oEvent.loaded / oEvent.total;
-	console.log("Loading music file... " + Math.floor(percentComplete * 100) + "%");
+	//console.log("Loading music file... " + Math.floor(percentComplete * 100) + "%");
 	$("#loading").html("Loading... " + Math.floor(percentComplete * 100) + "%");
   } else {
     // Unable to compute progress information since the total size is unknown
@@ -239,18 +239,18 @@ function initBinCanvas () {
 	//add new canvas
 	"use strict";
 	c = document.getElementById("freq");
-	c.width = window.innerWidth;
-        c.height = window.innerHeight;
+	c.width = $('.windowAudioClient').width() / 2;
+        c.height = $('.windowAudioClient').height() / 2;
 	//get context from canvas for drawing
 	ctx = c.getContext("2d");
 
-	ctx.canvas.width  = window.innerWidth;
-  	ctx.canvas.height = window.innerHeight;
+	ctx.canvas.width  = $('.windowAudioClient').width();
+  	ctx.canvas.height = $('.windowAudioClient').height();
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	//create gradient for the bins
-	var gradient = ctx.createLinearGradient(0, c.height - 300,0,window.innerHeight - 25);
+	var gradient = ctx.createLinearGradient(0, c.height - 300,0,c.height - 25);
 	gradient.addColorStop(1,'#00f'); //black
 	gradient.addColorStop(0.75,'#f00'); //red
 	gradient.addColorStop(0.25,'#f00'); //yellow
@@ -262,15 +262,15 @@ function initBinCanvas () {
 
 function onWindowResize()
 {
-	ctx.canvas.width  = window.innerWidth;
-  	ctx.canvas.height = window.innerHeight;
+	ctx.canvas.width  = $('.windowAudioClient').width();
+  	ctx.canvas.height = $('.windowAudioClient').height();
 
 	var containerHeight = $("#song_info_wrapper").height();
-	var topVal = $(window).height() / 2 - containerHeight / 2;
+	var topVal = $('.windowAudioClient').height() / 2 - containerHeight / 2;
 	$("#song_info_wrapper").css("top", topVal);
 	console.log(topVal);
 
-	if($(window).width() <= 500) {
+	if($('.windowAudioClient').width() <= 500) {
 		//TODO: not yet working
 		$("#title").css("font-size", "40px");
 	}
@@ -335,23 +335,23 @@ function drawBars (array) {
 
 	//console.log(maxBinCount); //--> 1024
 	ctx.scale(0.5, 0.5);
-	ctx.translate(window.innerWidth, window.innerHeight);
+	ctx.translate(ctx.canvas.width, ctx.canvas.height);
 	ctx.fillStyle = "#fff";
 
 	var bass = Math.floor(array[1]); //1Hz Frequenz
-	var radius = 0.45 * $(window).width() <= 450 ? -(bass * 0.25 + 0.45 * $(window).width()) : -(bass * 0.25 + 450);
+	var radius = 0.45 * $('.windowAudioClient').width() <= 450 ? -(bass * 0.25 + 0.45 * $('.windowAudioClient').width()) : -(bass * 0.25 + 450);
 
 	var bar_length_factor = 1;
-	if ($(window).width() >= 785) {
+	if ($('.windowAudioClient').width() >= 785) {
 		bar_length_factor = 1.0;
 	}
-	else if ($(window).width() < 785) {
+	else if ($('.windowAudioClient').width() < 785) {
 		bar_length_factor = 1.5;
 	}
-	else if ($(window).width() < 500) {
+	else if ($('.windowAudioClient').width() < 500) {
 		bar_length_factor = 20.0;
 	}
-	console.log($(window).width());
+	//console.log($(window).width());
 	//go over each bin
 	for ( var i = 0; i < maxBinCount; i++ ){
 
@@ -360,7 +360,7 @@ function drawBars (array) {
 			//draw bin
 			//ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
                         //ctx.fillRect(i * space, c.height, 2, -value);
-                        ctx.fillRect(0, radius, $(window).width() <= 450 ? 2 : 3, -value / bar_length_factor);
+                        ctx.fillRect(0, radius, $('.windowAudioClient').width() <= 450 ? 2 : 3, -value / bar_length_factor);
                         ctx.rotate((180 / 128) * Math.PI/180);
 		}
 	}
@@ -374,7 +374,7 @@ function drawBars (array) {
 			//ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
 						//ctx.fillRect(i * space, c.height, 2, -value);
 						ctx.rotate(-(180 / 128) * Math.PI/180);
-						ctx.fillRect(0, radius, $(window).width() <= 450 ? 2 : 3, -value / bar_length_factor);
+						ctx.fillRect(0, radius, $('.windowAudioClient').width() <= 450 ? 2 : 3, -value / bar_length_factor);
 		}
 	}
 
@@ -387,7 +387,7 @@ function drawBars (array) {
 			//ctx.fillRect(0 + i * space, c.height - value, 2 , c.height);
 						//ctx.fillRect(i * space, c.height, 2, -value);
 						ctx.rotate((180 / 128) * Math.PI/180);
-						ctx.fillRect(0, radius, $(window).width() <= 450 ? 2 : 3, -value / bar_length_factor);
+						ctx.fillRect(0, radius, $('.windowAudioClient').width() <= 450 ? 2 : 3, -value / bar_length_factor);
 		}
 	}
 
@@ -429,7 +429,9 @@ function drawBars (array) {
 }*/
 
 function stop() {
-	sourceNode.stop();
+	if (typeof sourceNode !== "undefined") {
+		sourceNode.stop(0);
+	}
 	$("#title, #artist, #album").css("visibility", "hidden");
 	$(".yes").prop("disabled",false);
 }
