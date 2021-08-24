@@ -3,3 +3,45 @@ html,body{width: 100%;height: 100%;margin: 0px;position: absolute;align-items: c
 .center{margin:auto;text-align:center;align-items:center;}
 ::-webkit-scrollbar{width:7px;position:static;}
 ::-webkit-scrollbar-thumb{background: #de7396;border-radius: 20px;}
+@-webkit-keyframes PreloadGrad {
+    0%{background-position:0% 0%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@-moz-keyframes PreloadGrad {
+    0%{background-position:0% 0%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@keyframes PreloadGrad {
+    0%{background-position:0% 0%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+#preload{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  z-index: 1001;
+  cursor: wait;
+  color: white;
+  background: linear-gradient(320deg, #000000, #5ae6f1, #f1865a, #5af1b2, #f18a8a);
+  background-size: 1000% 1000%;
+  -webkit-animation: PreloadGrad 35s ease infinite;
+  -moz-animation: PreloadGrad 35s ease infinite;
+  animation: PreloadGrad 35s ease infinite;
+}
+#preload-content{
+  text-align: center;
+  margin-top: 5%;
+  font-size: 25px;
+  cursor: wait;
+}
+#load_proc{
+  line-height: 50px;
+  cursor: wait;
+}
