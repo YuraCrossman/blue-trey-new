@@ -16,7 +16,7 @@ window.onload = $(function () {
     setTimeout(function(){
       var sound = $("audio")[0];
       sound.play();
-      $('#preload').fadeOut().end().delay(400).fadeOut('slow');
+      $('#preload').fadeOut().end().delay(400).fadeOut(1600,"linear");
     }, 3000);
   }
 });
