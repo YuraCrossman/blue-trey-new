@@ -29,10 +29,11 @@ window.onload = $(function() {
   let vidWidth = vid.videoWidth;
   let aid = document.getElementById("mAudio");
   $('html').selectable();
-  $('.window,.safari-win,.windowAudioClient').draggable({scroll: false}).resizable({maxHeight: 727,maxWidth: 1447,minHeight: 305,minWidth: 600});
+  $('.window,.windowAudioClient').draggable({scroll: false}).resizable({maxHeight: 727,maxWidth: 1447,minHeight: 305,minWidth: 600});
+  $('.safari-win').draggable({scroll: false}).resizable({maxHeight:100,minHeight:80,maxWidth:1447,minWidth:600});
   $('.modal-window').draggable({scroll: false})/*.resizable({minHeight: 305,minWidth: 600,maxHeight:vidHeight,maxHeight:vidWidth})*/;
   $('#modalImage>.modal-window').resizable({minHeight: 50,minWidth: 300,maxHeight:633 ,maxWidth:1066});
-  $('.vb,.audioplayer,.safari,.windowAudioClient').draggable({scroll: false});
+  $('.vb,.audioplayer,.safari,.windowAudioClient').draggable({scroll: false}); //ярлыки на рабочем столе
   //$('.window,.windowAudioClient').draggable({cancel: ".pan"});
   $('thead').load('pages/1.html');
   $('tbody').load('pages/home.html');

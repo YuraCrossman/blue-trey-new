@@ -43,7 +43,7 @@
   position:relative;
   margin-top: 5em;
   border-radius:8px;
-  width: 653px; height: 597px;
+  width: 653px; height: 100px;
   margin-left:auto;margin-right:auto;
 }
 .modal-window{
@@ -104,6 +104,7 @@ a.closebutton span {
   color: #820005;
   visibility: hidden;
 }
+.modal-window,.windowAudioClient,.safari-win{top:0;left:0;right:0}
 .pane-sm{overflow-y: auto;flex: 1;border-left: 1px solid #ddd;}
 .vb.ui-selecting,.audioplayer.ui-selecting,.safari.ui-selecting {background: #14abf3d1;filter: drop-shadow();}
 .vb.ui-selected,.audioplayer.ui-selected,.safari.ui-selected {background: #14abf375;filter: drop-shadow();}

@@ -47,6 +47,10 @@
     <!-- Javascript for mac -->
     <script src="js/menu.js" charset="utf-8"></script>
 
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+
     <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(52271623, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/52271623" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
   </head>
@@ -159,6 +163,14 @@
                     Настройки
                   </span>
                 </nav>
+                <!-- Yandex.RTB R-A-630054-2 -->
+                <div id="yandex_rtb_R-A-630054-2"></div>
+                <script>window.yaContextCb.push(()=>{
+                  Ya.Context.AdvManager.render({
+                    renderTo: 'yandex_rtb_R-A-630054-2',
+                    blockId: 'R-A-630054-2'
+                  })
+                })</script>
               </div>
 
               <div class="pane">
@@ -300,6 +312,35 @@
       </div>
     </div>
 
+    <!-- Safari -->
+    <div class="safari-win" style="display:none">
+      <header class="modal-toolbar toolbar-header">
+        <div class="buttons">
+          <div class="close" style="cursor: pointer;">
+            <a id="modal-saf" class="closebutton" style="cursor: pointer;"><span><strong style="cursor: pointer;">x</strong></span></a>
+          </div>
+        </div>
+        <h1 class="title title-window-player" style="cursor:move;">Safari</h1>
+      </header>
+      <div class="tab-group" id="tabs">
+        <div class="tab-item active">
+          <span class="icon icon-cancel icon-close-tab"></span>
+          Новая вкладка
+        </div>
+        <div class="tab-item tab-item-fixed">
+         <span class="icon icon-plus"></span>
+       </div>
+      </div>
+      <div class="tab-group" id="search">
+        <input type="text" name="src" value="google.com" style="width:100%">
+        <button class="btn btn-default" name="search">Залупа</button>
+      </div>
+      <div class="window-content background">
+        <div id="frameSaf" style="width:100%; color:white;"></div>
+        <!--iframe id="frameSaf" src="https://ya.ru" width="100%"></iframe-->
+      </div>
+    </div>
+
     <!-- Settings -->
     <div class="modal" width="auto" id="modalSettings" tabindex="-1" aria-hidden="true">
       <div class="modal-window" style="top: -55px;">
@@ -383,34 +424,6 @@
       <div class="toast-body">
         Это приложение может <b>сильно нагрузить вашу систему</b>!
         Если же это произошло, следует <b>перезагрузить страницу</b>
-      </div>
-    </div>
-
-    <div class="safari-win" style="display:none">
-      <header class="modal-toolbar toolbar-header">
-        <div class="buttons">
-          <div class="close" style="cursor: pointer;">
-            <a id="modal-saf" class="closebutton" style="cursor: pointer;"><span><strong style="cursor: pointer;">x</strong></span></a>
-          </div>
-        </div>
-        <h1 class="title title-window-player" style="cursor:move;">Safari</h1>
-      </header>
-      <div class="tab-group" id="tabs">
-        <div class="tab-item active">
-          <span class="icon icon-cancel icon-close-tab"></span>
-          Новая вкладка
-        </div>
-        <div class="tab-item tab-item-fixed">
-         <span class="icon icon-plus"></span>
-       </div>
-      </div>
-      <div class="tab-group" id="search">
-        <input type="text" name="src" value="google.com" style="width:100%">
-        <button class="btn btn-default" name="search">Залупа</button>
-      </div>
-      <div class="window-content background">
-        <div id="frameSaf" style="width:100%; color:white;"></div>
-        <!--iframe id="frameSaf" src="https://ya.ru" width="100%"></iframe-->
       </div>
     </div>
 
