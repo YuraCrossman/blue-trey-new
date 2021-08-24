@@ -50,6 +50,7 @@ window.onload = $(function() {
   });
   $(".windowAudioClientPlayer").load('audiovisualization-master/index.html');
   $("#frameSaf").load('https://ya.ru');
+  $(".text-end").css('top',$(document).width()/2.3);
 });
 function closeApp(){
   window.close();
