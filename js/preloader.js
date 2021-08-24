@@ -17,6 +17,6 @@ window.onload = $(function () {
       var sound = $("audio")[0];
       sound.play();
       $('#preload').fadeOut().end().delay(400).fadeOut('slow');
-    }, 1000);
+    }, 3000);
   }
 });
