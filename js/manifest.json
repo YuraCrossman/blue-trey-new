@@ -1,7 +1,7 @@
 {
   "name": "Blue Trey OS (Mac OS style)",
   "short_name": "Blue Trey OS",
-  "start_url": "/index.html",
+  "start_url": "/blue-trey-new",
   "display": "standalone",
   "background_color": "#de7396",
   "orientation": "portrait-primary",
