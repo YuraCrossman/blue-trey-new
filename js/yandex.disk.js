@@ -5,14 +5,18 @@ function vb(file) {
     contentType: 'application/json',
     headers: { Authorization: 'OAuth' }
    }).done(function(data) {
-     //console.log(data);
+     console.log(data);
      //console.log('data called success');
      //window.open(data['href']);
-     //$('iframe').attr('src',data['href']);
-     $('#frameSaf').load(data['href']);
+     $('iframe#frameSaf').attr('src',data['href']);
+     //$('#frameSaf').load(data['href']);
    }).then(function (err) {
      //console.log(err);
    });
+}
+
+function search(){
+  $('iframe#frameSaf').attr('src',"//"+$("#searchSrc").val());
 }
 
 // https://overcoder.net/q/2669577/%D0%BA%D0%B0%D0%BA-%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B8-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81-curl-%D0%B2-%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2-ajax-%D0%B1%D0%B5%D0%B7-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-22-%D0%B4%D0%BB%D1%8F-%D0%BA%D0%B0%D0%B2%D1%8B%D1%87%D0%B5%D0%BA

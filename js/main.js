@@ -30,7 +30,7 @@ window.onload = $(function() {
   let aid = document.getElementById("mAudio");
   $('html').selectable();
   $('.window,.windowAudioClient').draggable({scroll: false}).resizable({maxHeight: 727,maxWidth: 1447,minHeight: 305,minWidth: 600});
-  $('.safari-win').draggable({scroll: false}).resizable({maxHeight:100,minHeight:80,maxWidth:1447,minWidth:600});
+  $('.safari-win').draggable({scroll: false}).resizable({maxHeight:476,minHeight:476,maxWidth:1447,minWidth:600});
   $('.modal-window').draggable({scroll: false})/*.resizable({minHeight: 305,minWidth: 600,maxHeight:vidHeight,maxHeight:vidWidth})*/;
   $('#modalImage>.modal-window').resizable({minHeight: 50,minWidth: 300,maxHeight:633 ,maxWidth:1066});
   $('.vb,.audioplayer,.safari,.windowAudioClient').draggable({scroll: false}); //ярлыки на рабочем столе
@@ -51,7 +51,6 @@ window.onload = $(function() {
   });
   $(".windowAudioClientPlayer").load('audiovisualization-master/index.html');
   $("#frameSaf").load('https://ya.ru');
-  $(".text-end").css('top',$(document).width()/2.3);
 });
 function closeApp(){
   window.close();
