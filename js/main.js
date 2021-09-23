@@ -87,7 +87,7 @@ $(".audioplayer").dblclick(function(){
   sound.src='files/sound/Frog.wav';
   sound.autoplay=true;
   var toast = window.sessionStorage.getItem('toast');
-  if (toast !== '1'){$('.toast').toast('show');window.navigator.vibrate(200);window.sessionStorage.setItem('toast','1');}
+  if (toast !== '1'){$('.toast').toast('show');window.navigator.vibrate(600);window.sessionStorage.setItem('toast','1');}
 });
 $(".safari").dblclick(function(){
   $(".safari-win").toggle('slow');
