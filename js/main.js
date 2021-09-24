@@ -57,7 +57,9 @@ window.onload = $(function() {
     $('#menu').css({'display':'none'})
   });
   $(".windowAudioClientPlayer").load('audiovisualization-master/index.html');
-  $("#frameSaf").load('https://ya.ru');
+  //$("#frameSaf").load('https://ya.ru');
+  var jsswitch = document.querySelector('.js-switch');
+  var init = new Switchery(jsswitch, { size: 'small' });
 });
 function closeApp(){
   window.close();

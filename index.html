@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/light.css">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css"/>
     <link rel="stylesheet" href="css/player.css">
+    <link rel="stylesheet" href="switch/switchery.min.css">
 
     <!-- JS -->
     <script src="js/darkmode.min.js"></script>
@@ -41,6 +42,7 @@
     <script src="js/video/plyr.js"></script>
     <script src="js/yandex.disk.js"></script>
     <script src="js/amplitude.min.js"></script>
+    <script src="switch/switchery.min.js"></script>
     <!-- Browser Updates -->
     <script src="https://yastatic.net/browser-updater/v1/script.js" charset="utf-8"></script>
     <script>var yaBrowserUpdater = new ya.browserUpdater.init({"lang":"ru","browsers":{"yabrowser":"16.12","chrome":"62","ie":"11","opera":"35","safari":"10","fx":"52","iron":"35","flock":"Infinity","palemoon":"25","camino":"Infinity","maxthon":"4.5","seamonkey":"2.3"},"theme":"black"});</script>
@@ -400,13 +402,13 @@
             </div>
             <br>
             <select class="form-control" name="backOption">
-              <option value="auto">По размеру</option>
               <option value="cover">Растянуть</option>
+              <option value="auto">По размеру</option>
               <option value="repeat">Замостить</option>
             </select>
-            <p style="margin-top: 1rem;">Тёмная тема:</p>
-            <div class="flex">
-              <input type="checkbox" name="dark">
+            <div class="flex" style="display: flex;justify-content: space-between;align-items: center;">
+              <p style="margin-top: 1rem;">Тёмная тема:</p>
+              <input type="checkbox" name="dark" class="js-switch" disabled>
             </div>
              <br>
             <button class='btn btn-default' onclick="$('#modalSettings').modal('hide');">Cansel</button>
