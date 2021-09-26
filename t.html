@@ -11,7 +11,7 @@
       var t = window.location.hash;
       window.sessionStorage.setItem('token',t.slice(14,53));
       if (window.sessionStorage.getItem('token') != ''){window.close();}
-      else{document.body.getElementsByTagName('err').append("Error");}
+      else{document.getElementById("err").append("Error");}
     </script>
   </body>
 </html>
