@@ -108,7 +108,7 @@ $(".safari").dblclick(function(){
 function vb(file) {
   //window.open(file,'target', "left=200,top=100,width=1024,height=576,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
   const token = window.sessionStorage.getItem('token');
-  if (token==''){
+  if (token==null){
     window.open("https://oauth.yandex.ru/authorize?response_type=token&client_id=c0525f3358d7477db0d18ed85c5274f6");
   }
   else{
