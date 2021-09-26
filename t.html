@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>T</title>
+  </head>
+  <body>
+    <script>
+      var t = window.location.hash;
+      window.sessionStorage.setItem('token',t.slice(14,53));
+      window.close();
+    </script>
+  </body>
+</html>

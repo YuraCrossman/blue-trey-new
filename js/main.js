@@ -107,18 +107,24 @@ $(".safari").dblclick(function(){
 
 function vb(file) {
   //window.open(file,'target', "left=200,top=100,width=1024,height=576,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
-  $.ajax({
+  const token = window.sessionStorage.getItem('token');
+  if (token==''){
+    window.open("https://oauth.yandex.ru/authorize?response_type=token&client_id=c0525f3358d7477db0d18ed85c5274f6");
+  }
+  else{
+    $.ajax({
     type: 'GET',
     url: 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key='+file,
     contentType: 'application/json',
-    headers: { Authorization: 'OAuth' }
+    headers: { Authorization: 'OAuth oauth_token="'+token+'", oauth_client_id="c0525f3358d7477db0d18ed85c5274f6"' }
    }).done(function(data) {
-     console.log(data);
+     //console.log(data);
      console.log('data called success');
      window.open(data['href'],'target', "left=200,top=100,width=1024,height=576,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
    }).then(function (err) {
      //console.log(err);
    });
+ }
 }
 function search(){
   $('iframe#frameSaf').attr('src',"//"+$("#searchSrc").val());
