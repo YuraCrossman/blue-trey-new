@@ -120,6 +120,8 @@ function vb(file) {
    }).done(function(data) {
      //console.log(data);
      console.log('data called success');
+     var myHeaders = new Headers();
+     myHeaders.append('Authorization', 'OAuth oauth_token="'+token+'", oauth_client_id="c0525f3358d7477db0d18ed85c5274f6"');
      window.open(data['href'],'target', "left=200,top=100,width=1024,height=576,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
    }).then(function (err) {
      //console.log(err);
