@@ -6,12 +6,12 @@
     <meta name="robots" content="noindex, nofollow">
   </head>
   <body>
-    <h1 id="err"></h1>
+    <p id="inf"></p>
     <script>
       var t = window.location.hash;
       window.localStorage.setItem('token',t.slice(14,53));
-      if (window.localStorage.getItem('token') != ''){window.close();}
-      else{document.getElementById("err").append("Error");}
+      if (window.localStorage.getItem('token') != ''){document.getElementById("inf").append("The token has been received, you can close the window");}
+      else{document.getElementById("inf").append("Error");}
     </script>
   </body>
 </html>
