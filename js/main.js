@@ -126,9 +126,9 @@ function vb(file) {
    });
  }
 }
-function search(){
+/*function search(){
   $('iframe#frameSaf').attr('src',"//"+$("#searchSrc").val());
-}
+}*/
 
 function clicksd(){
   var sound = new Audio();
