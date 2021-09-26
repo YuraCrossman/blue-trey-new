@@ -9,8 +9,8 @@
     <h1 id="err"></h1>
     <script>
       var t = window.location.hash;
-      window.sessionStorage.setItem('token',t.slice(14,53));
-      if (window.sessionStorage.getItem('token') != ''){window.close();}
+      window.localStorage.setItem('token',t.slice(14,53));
+      if (window.localStorage.getItem('token') != ''){window.close();}
       else{document.getElementById("err").append("Error");}
     </script>
   </body>
