@@ -8,18 +8,8 @@ request1.open('GET','js/audio.json');
 request1.responseType = 'json';
 request1.send();
 
-/*var options = {
-  light: "css/light.css",
-  dark: "css/dark.css",
-  startAt: "18:00",
-  endAt: "7:30",
-  checkSystemScheme: true,
-  saveOnToggle: true
-}
-var darkmode = new DarkMode(options);*/
-
 if (window.localStorage.getItem('name')){
-  $('.pr-text').text('Привет, '+ window.localStorage.getItem('name'))
+  $('.pr-text').text('Привет, '+ window.localStorage.getItem('name')+'!')
 }
 
 window.onload = $(function() {
@@ -42,8 +32,8 @@ window.onload = $(function() {
   $('#modalImage>.modal-window').resizable({minHeight: 50,minWidth: 300,maxHeight:633 ,maxWidth:1066});
   $('.vb,.audioplayer,.safari,.windowAudioClient').draggable({scroll: false}); //ярлыки на рабочем столе
   //$('.window,.windowAudioClient').draggable({cancel: ".pan"});
-  $('thead').load('pages/1.html');
-  $('tbody').load('pages/home.html');
+  $('#theadmain').load('pages/1.html');
+  $('#tbodymain').load('pages/home.html');
   if (window.localStorage.getItem('back')){$('body').css('background-image','url('+window.localStorage.getItem('back')+')')}
   $('[data-toggle=tooltip]').tooltip();
   $('#backSystem').collapse();
@@ -96,7 +86,7 @@ $(".audioplayer").dblclick(function(){
   sound.src='files/sound/Frog.wav';
   sound.autoplay=true;
   var toast = window.sessionStorage.getItem('toast');
-  if (toast !== '1'){$('.toast').toast('show');window.navigator.vibrate(600);window.sessionStorage.setItem('toast','1');}
+  if (toast !== '1'){$('#toast-ms').toast('show');window.navigator.vibrate(600);window.sessionStorage.setItem('toast','1');}
 });
 $(".safari").dblclick(function(){
   $(".safari-win").toggle('slow');
@@ -105,8 +95,7 @@ $(".safari").dblclick(function(){
   sound.autoplay=true;
 });
 
-function vb(file) {
-  //window.open(file,'target', "left=200,top=100,width=1024,height=576,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
+/*function vb(file) {
   const token = window.localStorage.getItem('token');
   if (token==null||token==""){
     window.open("https://oauth.yandex.ru/authorize?response_type=token&client_id=c0525f3358d7477db0d18ed85c5274f6","left=200,top=100,width=1024,height=576");
@@ -127,6 +116,14 @@ function vb(file) {
      //console.log(err);
    });
  }
+}*/
+function vb(file) {
+
+  window.open(file,'target', "left=200,top=100,width=768,height=432,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
+  $('#toast-dl').toast('show');window.navigator.vibrate(600);
+  var sound = new Audio();
+  sound.src='files/sound/Frog.wav';
+  sound.autoplay=true;
 }
 /*function search(){
   $('iframe#frameSaf').attr('src',"//"+$("#searchSrc").val());
@@ -145,11 +142,11 @@ function pagesd(p){
   var sound = new Audio();
   sound.src='files/sound/Morse.wav';
   sound.autoplay=true;
-  $('tbody').load('pages/'+p+'.html');
-  if (p == 'home'){$('thead').load('pages/1.html');$('.nav-group-item').removeClass('active');$('.icon-home').parent('.nav-group-item').addClass('active');}
-  else if (p =='download'){$('thead').load('pages/2.html');$('.nav-group-item').removeClass('active');$('.icon-download').parent('.nav-group-item').addClass('active');}
-  else if (p =='galery'){$('thead').load('pages/3.html');}
-  else if (p =='calendar'){$('thead').load('pages/calendar-tr.html');$('.nav-group-item').removeClass('active');$('.icon-calendar').parent('.nav-group-item').addClass('active');}
+  $('#tbodymain').load('pages/'+p+'.html');
+  if (p == 'home'){$('#theadmain').load('pages/1.html');$('.nav-group-item').removeClass('active');$('.icon-home').parent('.nav-group-item').addClass('active');}
+  else if (p =='download'){$('#theadmain').load('pages/2.html');$('.nav-group-item').removeClass('active');$('.icon-download').parent('.nav-group-item').addClass('active');}
+  else if (p =='galery'){$('#theadmain').load('pages/3.html');}
+  else if (p =='calendar'){$('#theadmain').load('pages/calendar-tr.html');$('.nav-group-item').removeClass('active');$('.icon-calendar').parent('.nav-group-item').addClass('active');}
   else {}
 }
 function errorsd(){

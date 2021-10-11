@@ -2,21 +2,13 @@
 <html lang="ru" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Blue Trey (Mac OS style)</title>
+    <title>「UTAU」 Blue Trey и Yura Crossman</title>
     <link rel="icon" href="icon.png">
     <link rel="manifest" href="js/manifest.json">
     <meta name="author" content="Yura Crossman">
     <meta name="keywords" content="UTAU,UTAUloid,Synth,Voicebank,voice bank,Blue Trey,Yura Crossman,Synthesizer,голосовой, банк,синтезатор, речь, голос, голосовая, база, библиотека,операционная система,OS">
     <meta name="description" content="Это официальный сайт создателя голосовых банков Yura Crossman и Blue Trey. Здесь вы можете скачать голосовую библиотеку Yura Crossman или Blue Trey для программы UTAU." lang="ru">
     <meta name="description" content="This is the official website of the creator of the voice banks Yura Crossman and Blue Trey. Here you can download the Yura Crossman or Blue Trey voice library for the UTAU program." lang="en">
-    <!--link rel="preload" href="files/sound/Startup.mp3" as="audio">
-    <link rel="preload" href="js/jq/jquery-3.6.0.min.js" as="script">
-    <link rel="preload" href="js/preloader.js" as="script">
-    <link rel="preload" href="js/main.js" as="script">
-    <link rel="preload" href="files/sound/Frog.wav" as="audio">
-    <link rel="preload" href="files/sound/Hero.wav" as="audio">
-    <link rel="preload" href="files/sound/Morce.wav" as="audio">
-    <link rel="preload" href="files/mabel.mp4" as="video"-->
 
     <!-- JQ -->
     <script src="js/jq/jquery-3.6.0.min.js"></script>
@@ -37,7 +29,6 @@
     <link rel="stylesheet" href="switch/switchery.min.css">
 
     <!-- JS -->
-    <script src="js/darkmode.min.js"></script>
     <script src="https://unpkg.com/mediainfo.js/dist/mediainfo.min.js"></script>
     <script src="js/video/plyr.js"></script>
     <script src="js/amplitude.min.js"></script>
@@ -67,6 +58,7 @@
 
       gtag('config', 'G-ZG94GDFMBJ');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2600373850097143" crossorigin="anonymous"></script>
 
   </head>
   <body>
@@ -190,9 +182,9 @@
 
               <div class="pane">
                 <table class="table-striped">
-                  <thead>
+                  <thead id="theadmain">
                   </thead>
-                  <tbody>
+                  <tbody id="tbodymain">
                   </tbody>
                 </table>
               </div>
@@ -258,6 +250,7 @@
           </div>
         </div>
       </div>
+      <canvas id="canvas" width="100%">тут типа должно чтото быть</canvas>
     </div>
 
     <!-- Image -->
@@ -423,7 +416,7 @@
       </div>
     </div>
 
-    <div class="toast fade hide" data-delay="6000" role="alert" aria-live="assertive" aria-atomic="true" style="position:absolute;top:0;right:0;margin:15px;">
+    <div class="toast fade hide" id="toast-ms" data-delay="6000" role="alert" aria-live="assertive" aria-atomic="true" style="position:absolute;top:0;right:0;margin:15px;">
       <div class="toast-header">
         <img src="icon.png" class="rounded mr-2" width="20px">
         <strong class="mr-auto">Система</strong>
@@ -435,6 +428,39 @@
       <div class="toast-body">
         Это приложение может <b>сильно нагрузить вашу систему</b>!
         Если же это произошло, следует <b>перезагрузить страницу</b>
+      </div>
+    </div>
+    <div class="toast fade hide" id="toast-dl" data-delay="10000" role="alert" aria-live="assertive" aria-atomic="true" style="position:absolute;top:0;right:0;margin:15px;">
+      <div class="toast-header">
+        <img src="icon.png" class="rounded mr-2" width="20px">
+        <strong class="mr-auto">Система</strong>
+        <small>только что</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        Не закрывайте это окно <b>до тех пор, пока не скачается</b> голосовая база!
+      </div>
+    </div>
+
+    <div class="modal" id="license" tabindex="-1" aria-hidden="true">
+      <div class="modal-body">
+        <table>
+          <thead>
+              Licenses
+          </thead>
+          <tbody>
+            <tr>
+              <td>какого</td>
+              <td>сука</td>
+            </tr>
+            <tr>
+              <th>хрена</th>
+            </tr>
+            </th>
+          </tbody>
+        </table>
       </div>
     </div>
 
