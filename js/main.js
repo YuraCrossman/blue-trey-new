@@ -118,7 +118,7 @@ $(".safari").dblclick(function(){
  }
 }*/
 function vb(file) {
-
+  ym(52271623,'reachGoal','DLVB');
   window.open(file,'target', "left=200,top=100,width=768,height=432,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
   $('#toast-dl').toast('show');window.navigator.vibrate(600);
   var sound = new Audio();
