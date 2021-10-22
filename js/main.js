@@ -14,6 +14,12 @@ if (window.localStorage.getItem('name')){
 
 window.onload = $(function() {
   //$('body').on('contextmenu', false);
+  CookieChecker.setCallback(function(cookieAllowed, adblockEnabled) {
+      console.log('Cookie Checker callback');
+
+      console.log(cookieAllowed);
+      console.log(adblockEnabled);
+  });
   var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false);
   var iOS7 = (navigator.userAgent.match(/(OS 7_0)/i) ? true : false);
   var android = (navigator.userAgent.match(/Android/i) ? true : false);
