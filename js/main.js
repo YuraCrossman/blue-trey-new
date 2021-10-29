@@ -144,7 +144,7 @@ $('.nav-group-item').on('click',function(){ //добавления класса 
   $('.nav-group-item').removeClass('active');
   $(this).addClass('active');
 });
-function pagesd(p){
+function pagesd(p){ //вкладки главного окна
   var sound = new Audio();
   sound.src='files/sound/Morse.wav';
   sound.autoplay=true;
@@ -153,6 +153,7 @@ function pagesd(p){
   else if (p =='download'){$('#theadmain').load('pages/2.html');$('.nav-group-item').removeClass('active');$('.icon-download').parent('.nav-group-item').addClass('active');}
   else if (p =='galery'){$('#theadmain').load('pages/3.html');}
   else if (p =='calendar'){$('#theadmain').load('pages/calendar-tr.html');$('.nav-group-item').removeClass('active');$('.icon-calendar').parent('.nav-group-item').addClass('active');}
+  else if (p =='alist'){$('#theadmain').load('pages/alie.html');$('.nav-group-item').removeClass('active');$('.icon-basket').parent('.nav-group-item').addClass('active');}
   else {}
 }
 function errorsd(){
